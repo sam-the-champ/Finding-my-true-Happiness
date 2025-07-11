@@ -189,17 +189,143 @@ blockquote {
   color: #4a90e2;
 }
 
-@media (max-width: 600px) {
+/* Tablets and smaller desktops */
+@media (max-width: 1024px) {
+  header {
+    padding: 50px 15px 35px;
+  }
+
   header h1 {
-    font-size: 1.8rem;
+    font-size: clamp(1.6rem, 5vw, 2.6rem);
   }
-  .btn {
-    width: 100%;
-    font-size: 1.1rem;
+
+  header p {
+    font-size: clamp(0.95rem, 3vw, 1.15rem);
   }
+
   section {
-    padding: 30px 15px;
+    max-width: 720px;
+    padding: 35px 15px;
+    margin: 20px auto;
   }
+
+  #author img {
+    width: 140px;
+    height: 140px;
+    margin-right: 18px;
+  }
+
+  #newsletter {
+    max-width: 720px !important;
+    padding: 25px 15px !important;
+  }
+}
+
+/* Mobile devices (phones) */
+@media (max-width: 600px) {
+  header {
+    padding: 40px 12px 30px;
+  }
+
+  header h1 {
+    font-size: 1.8rem !important;
+  }
+
+  header p {
+    font-size: 1rem !important;
+    margin-bottom: 15px;
+  }
+
+  header img {
+    width: 180px !important;
+    margin: 20px auto 15px !important;
+  }
+
+  .btn {
+    width: 100% !important;
+    padding: 14px 0 !important;
+    font-size: 1.1rem !important;
+  }
+
+  section {
+    max-width: 100%;
+    padding: 25px 12px !important;
+    margin: 15px 8px !important;
+  }
+
+  section h2 {
+    font-size: 1.4rem !important;
+    margin-bottom: 14px;
+  }
+
+  section ul li {
+    font-size: 1rem !important;
+    padding-left: 18px;
+  }
+
+  blockquote {
+    margin: 12px 0 20px;
+    padding-left: 16px;
+  }
+
+  #author img {
+    float: none !important;
+    display: block !important;
+    margin: 0 auto 20px !important;
+    width: 130px !important;
+    height: 130px !important;
+  }
+
+  #author h3 {
+    text-align: center !important;
+  }
+
+  #newsletter {
+    max-width: 100% !important;
+    padding: 20px 12px !important;
+  }
+
+  #newsletter form {
+    gap: 12px !important;
+  }
+
+  #newsletter input[type="text"],
+  #newsletter input[type="email"] {
+    font-size: 0.95rem !important;
+    padding: 12px !important;
+  }
+
+  #newsletter button {
+    padding: 14px 0 !important;
+  }
+}
+
+/* Very small phones (less than 360px width) */
+@media (max-width: 360px) {
+  header h1 {
+    font-size: 1.6rem !important;
+  }
+
+  header p {
+    font-size: 0.95rem !important;
+  }
+
+  section h2 {
+    font-size: 1.3rem !important;
+  }
+
+  .btn {
+    font-size: 1rem !important;
+    padding: 12px 0 !important;
+  }
+
+  #newsletter input[type="text"],
+  #newsletter input[type="email"] {
+    font-size: 0.9rem !important;
+    padding: 10px !important;
+  }
+}
+
 }
 
   </style>
@@ -261,7 +387,7 @@ blockquote {
         style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; float: left; margin-right: 25px; box-shadow: 0 6px 18px rgba(0,0,0,0.2); transition: transform 0.3s ease; cursor: default;" 
   onmouseover="this.style.transform='scale(1.03)'" 
   onmouseout="this.style.transform='scale(1)'" />
-    <h2>From the Author</h2><h3 style="margin-top: 0; color: #4a90e2; font-weight: 600;">Olalekan Samson Ogundimu</h3>
+    <h2>The Author</h2><h3 style="margin-top: 0; color: #4a90e2; font-weight: 600;">Crystal M Williams</h3>
     <p>This memoir is for anyone who has felt out of place, struggled with a diagnosis, or questioned their worth. I share my story to show that healing is possible, and happiness starts within.</p>
   </section>
 
