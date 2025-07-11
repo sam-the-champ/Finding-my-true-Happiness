@@ -9,143 +9,209 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      line-height: 1.6;
-      background-color: #fefefe;
-      color: #333;
-    }
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+  background-color: #fefefe;
+  color: #222; /* Darker for better contrast */
+}
 
-    header {
-      background: linear-gradient(120deg, #4a90e2, #6db5ff);
-      color: white;
-      padding: 80px 20px;
-      text-align: center;
-    }
+header {
+  background: linear-gradient(120deg, #4a90e2, #6db5ff);
+  color: white;
+  padding: 60px 20px 40px; /* Reduced bottom padding */
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(74, 144, 226, 0.3);
+}
 
-    header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
-    }
+header h1 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem); /* Responsive size */
+  margin-bottom: 8px;
+  font-weight: 700;
+}
 
-    header p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-    }
+header p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  margin-bottom: 20px; /* Less spacing */
+  font-weight: 500;
+}
 
-    .btn {
-      padding: 15px 30px;
-      background-color: #ff4081;
-      border: none;
-      color: white;
-      font-weight: 600;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
 
-    .btn:hover {
-      background-color: #e73370;
-      transform: scale(1.05);
-    }
+.btn {
+  padding: 14px 32px;
+  background-color: #ff4081;
+  border: none;
+  color: white;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 64, 129, 0.4);
+}
 
-    section {
-      padding: 60px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
+.btn:hover,
+.btn:focus {
+  background-color: #e73370;
+  transform: scale(1.07);
+  box-shadow: 0 6px 20px rgba(231, 51, 112, 0.6);
+  outline: none;
+}
 
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #4a90e2;
-    }
+section {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 20px auto; /* Tighter vertical margin */
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
 
-    section ul {
-      list-style: none;
-      padding-left: 0;
-    }
+section:hover {
+  box-shadow: 0 6px 20px rgba(74, 144, 226, 0.2);
+}
 
-    section ul li {
-      margin-bottom: 10px;
-      font-size: 1.1rem;
-    }
+section h2 {
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  margin-bottom: 16px;
+  color: #4a90e2;
+  cursor: default;
+  transition: color 0.3s ease;
+}
 
-    blockquote {
-      font-style: italic;
-      color: #666;
-      margin: 10px 0 20px;
-      padding-left: 20px;
-      border-left: 4px solid #4a90e2;
-    }
+section h2:hover {
+  color: #357abd;
+}
 
-    .overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 999;
-    }
+section ul {
+  list-style: none;
+  padding-left: 0;
+}
 
-    .popup {
-      display: none;
-      position: fixed;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      background: white;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-      z-index: 1000;
-      width: 90%;
-      max-width: 500px;
-    }
+section ul li {
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  position: relative;
+  padding-left: 24px;
+}
 
-    .popup input[type=text],
-    .popup input[type=email] {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
+section ul li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #ff4081;
+  font-weight: 700;
+}
 
-    .popup h2 {
-      color: #4a90e2;
-      margin-bottom: 20px;
-    }
+section p {
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #333;
+}
 
-    .close-btn {
-      position: absolute;
-      top: 12px;
-      right: 16px;
-      background: none;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
-      color: #888;
-    }
+blockquote {
+  font-style: italic;
+  color: #666;
+  margin: 15px 0 25px;
+  padding-left: 20px;
+  border-left: 4px solid #4a90e2;
+  background-color: #f7faff;
+  border-radius: 6px;
+}
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      .btn {
-        width: 100%;
-      }
-    }
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 999;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  z-index: 1000;
+  width: 90%;
+  max-width: 480px;
+}
+
+.popup input[type=text],
+.popup input[type=email] {
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0 18px;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.popup input[type=text]:focus,
+.popup input[type=email]:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+.popup h2 {
+  color: #4a90e2;
+  margin-bottom: 24px;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #4a90e2;
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+  .btn {
+    width: 100%;
+    font-size: 1.1rem;
+  }
+  section {
+    padding: 30px 15px;
+  }
+}
+
   </style>
 </head>
 <body>
   <header>
     <h1>Finding My True Happiness</h1>
     <p>A Journey Through Kabuki Syndrome, Self-Doubt, and the Power of Resilience</p>
+      <img src="author's image.jpg" alt="Finding My True Happiness Book Cover" 
+       style="width: 250px; max-width: 90%; margin: 25px auto 20px; display: block; border-radius: 16px; box-shadow: 0 6px 20px rgba(0,0,0,0.2); cursor: pointer; transition: transform 0.3s ease;" 
+  onmouseover="this.style.transform='scale(1.05)'" 
+  onmouseout="this.style.transform='scale(1)'" />
     <button class="btn" onclick="trackClick()">Order Your Copy</button>
   </header>
 
@@ -184,10 +250,18 @@
     <h2>What Readers Are Saying</h2>
     <blockquote>“This story made me cry, smile, and ultimately feel seen.”</blockquote>
     <blockquote>“Raw, real, and beautifully human.”</blockquote>
+    <blockquote>“A book every parent and teacher should read.”</blockquote>
+    <blockquote>“I felt like someone finally understood my pain.”</blockquote>
+    <blockquote>“This isn’t just a memoir, it’s a lifeline.”</blockquote>
+    <blockquote>“I gave it to my teenage daughter. She cried. She healed.”</blockquote>
   </section>
 
   <section id="author">
-    <h2>From the Author</h2>
+    <img src="auth.jpg" alt="Author Photo" 
+        style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; float: left; margin-right: 25px; box-shadow: 0 6px 18px rgba(0,0,0,0.2); transition: transform 0.3s ease; cursor: default;" 
+  onmouseover="this.style.transform='scale(1.03)'" 
+  onmouseout="this.style.transform='scale(1)'" />
+    <h2>From the Author</h2><h3 style="margin-top: 0; color: #4a90e2; font-weight: 600;">Olalekan Samson Ogundimu</h3>
     <p>This memoir is for anyone who has felt out of place, struggled with a diagnosis, or questioned their worth. I share my story to show that healing is possible, and happiness starts within.</p>
   </section>
 
@@ -198,8 +272,13 @@
 
   <section id="faq">
     <h2>Frequently Asked Questions</h2>
-    <p><strong>Q: Is this book suitable for teens?</strong><br>A: Absolutely! It’s relatable and empowering for ages 12+.</p>
-    <p><strong>Q: Where can I buy it?</strong><br>Click the “Order Now” button at the top of the page.</p>
+    <p><strong>Q: Is this book suitable for teens?</strong><br>A: Yes! Ages 12+ will find it relatable and empowering.</p>
+    <p><strong>Q: Where can I buy it?</strong><br>Click the "Order Now" button at the top.</p>
+    <p><strong>Q: Is this a medical book?</strong><br>No—it’s a memoir of emotional and personal growth.</p>
+    <p><strong>Q: Is this only for those with disabilities?</strong><br>Not at all! Anyone who’s struggled with identity or mental health will relate.</p>
+    <p><strong>Q: Can I gift this to someone?</strong><br>Yes. It’s a beautiful gift for anyone needing hope or resilience.</p>
+    <p><strong>Q: Does it include resources?</strong><br>Yes. It includes guidance and uplifting takeaways.</p>
+    <p><strong>Q: Will there be more from the author?</strong><br>Yes! Sign up below to stay connected.</p>
   </section>
 
   <div class="overlay" id="overlay"></div>
@@ -212,6 +291,18 @@
       <button class="btn" type="submit">Get Inspired Updates</button>
     </form>
   </div>
+   
+  <section id="newsletter" style="max-width: 900px; margin: 40px auto; padding: 30px 20px; background: #fff; border-radius: 12px; box-shadow: 0 6px 20px rgba(74, 144, 226, 0.2); text-align: center;">
+  <h2 style="color: #4a90e2; margin-bottom: 24px; font-weight: 700; font-size: 1.8rem;">Join the Resilience Movement</h2>
+  <form id="newsletter-form-bottom" action="https://formspree.io/f/YOUR_ID" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+    <input type="text" name="name" placeholder="Your Name" required
+      style="padding: 14px; border: 1.5px solid #ccc; border-radius: 10px; font-size: 1rem; transition: border-color 0.3s ease;"/>
+    <input type="email" name="email" placeholder="Your Email" required
+      style="padding: 14px; border: 1.5px solid #ccc; border-radius: 10px; font-size: 1rem; transition: border-color 0.3s ease;"/>
+    <button type="submit" class="btn" style="padding: 14px 32px; font-weight: 700; border-radius: 10px; cursor: pointer;">Get Inspired Updates</button>
+  </form>
+</section>
+
 
   <script>
     let hasShownPopup = false;
@@ -222,7 +313,7 @@
         body: JSON.stringify({ clicked: true, time: new Date().toISOString() }),
         headers: { 'Content-Type': 'application/json' }
       });
-      window.location.href = 'https://yourbookpurchaseurl.com';
+      window.location.href = 'https://a.co/d/iCM0jG4';
     }
 
     function showPopup() {

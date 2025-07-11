@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Finding My True Happiness is a memoir about living with Kabuki Syndrome, resilience, and self-love." />
+  <meta name="keywords" content="Kabuki Syndrome memoir, disability story, resilience book, mental health journey, self-love memoir" />
+  <title>Finding My True Happiness</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <div class="text">
+        <h1 class="animate__animated animate__fadeInDown">Finding My True Happiness</h1>
+        <p class="animate__animated animate__fadeInUp animate__delay-1s">A Journey Through Kabuki Syndrome, Self-Doubt, and the Power of Resilience</p>
+        <button class="btn animate__animated animate__zoomIn animate__delay-2s" onclick="trackClick()">Order Your Copy</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="book-preview">
+    <img src="the book.jpg" alt="Book Cover" class="book-cover" />
+  </section>
+
+  <section id="synopsis" class="fade-section">
+    <h2>About the Book</h2>
+    <p>This heartfelt memoir chronicles the life of a young woman living with Kabuki Syndrome. Through horseback therapy, the Special Olympics, heartbreak, self-doubt, and the search for self-love, she finds her voice, strength, and happiness.</p>
+    <ul>
+      <li>🐴 Therapeutic horseback riding that offered peace</li>
+      <li>🥇 Special Olympics moments that built strength</li>
+      <li>💔 Battles with bullying and heartbreak</li>
+      <li>💞 Discovering love, acceptance, and inner truth</li>
+    </ul>
+  </section>
+
+  <section id="audience" class="fade-section">
+    <h2>Is This Book for You?</h2>
+    <ul>
+      <li>✔️ You or someone you love lives with a disability</li>
+      <li>✔️ You've faced mental health struggles or bullying</li>
+      <li>✔️ You're searching for hope, healing, or inspiration</li>
+      <li>✔️ You want to be part of a story of resilience</li>
+    </ul>
+  </section>
+
+  <section id="kabuki" class="fade-section">
+    <h2>What is Kabuki Syndrome?</h2>
+    <p>Kabuki Syndrome is a rare genetic disorder that impacts physical and cognitive development. Those living with it often face unique challenges—and extraordinary growth. This book shines a light on what it truly means to live with a rare condition.</p>
+  </section>
+
+  <section id="movement" class="fade-section">
+    <h2>More Than a Book — A Movement</h2>
+    <p>Finding My True Happiness isn’t just a story—it's a mission. A mission to create more inclusive conversations around disability, mental health, and identity. Join this movement of awareness, courage, and community.</p>
+  </section>
+
+  <section id="testimonials" class="fade-section">
+    <h2>What Readers Are Saying</h2>
+    <blockquote>“This story made me cry, smile, and ultimately feel seen.”</blockquote>
+    <blockquote>“Raw, real, and beautifully human.”</blockquote>
+    <blockquote>“A book every parent and teacher should read.”</blockquote>
+    <blockquote>“I felt like someone finally understood my pain.”</blockquote>
+    <blockquote>“This isn’t just a memoir, it’s a lifeline.”</blockquote>
+    <blockquote>“I gave it to my teenage daughter. She cried. She healed.”</blockquote>
+  </section>
+
+  <section id="author" class="fade-section">
+    <h2>From the Author</h2>
+    <div class="author-box">
+      <img src="auth.jpg" alt="Author Crystal M. Williams" class="author-photo">
+      <p>I wrote this book for the outcasts, the overlooked, and the unheard. For every person who’s ever wondered, “Am I enough?” This is proof that your voice matters—and happiness begins with self-love.</p>
+    </div>
+  </section>
+
+  <section id="behind-the-scenes" class="fade-section">
+    <h2>Why I Wrote This</h2>
+    <p>I couldn’t find books that told my truth. So I wrote it. I wanted those like me to know they aren't alone, and to help those unlike me understand. This story is mine—but the healing belongs to all of us.</p>
+  </section>
+
+  <section id="faq" class="fade-section">
+    <h2>Frequently Asked Questions</h2>
+    <p><strong>Q: Is this book suitable for teens?</strong><br>A: Yes! Ages 12+ will find it relatable and empowering.</p>
+    <p><strong>Q: Where can I buy it?</strong><br>Click the "Order Now" button at the top.</p>
+    <p><strong>Q: Is this a medical book?</strong><br>No—it’s a memoir of emotional and personal growth.</p>
+    <p><strong>Q: Is this only for those with disabilities?</strong><br>Not at all! Anyone who’s struggled with identity or mental health will relate.</p>
+    <p><strong>Q: Can I gift this to someone?</strong><br>Yes. It’s a beautiful gift for anyone needing hope or resilience.</p>
+    <p><strong>Q: Does it include resources?</strong><br>Yes. It includes guidance and uplifting takeaways.</p>
+    <p><strong>Q: Will there be more from the author?</strong><br>Yes! Sign up below to stay connected.</p>
+  </section>
+
+  <div class="overlay" id="overlay"></div>
+  <div class="popup" id="popup">
+    <button class="close-btn" onclick="closePopup()">×</button>
+    <h2>Join the Resilience Movement</h2>
+    <form id="newsletter-form" action="https://formspree.io/f/YOUR_ID" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <button class="btn" type="submit">Get Inspired Updates</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
