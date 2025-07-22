@@ -460,7 +460,7 @@ function trackClick() {
 }
 
 function submitForm(e) {
-  event.preventDefault(); // Stop default form behavior
+  e.preventDefault(); // Stop default form behavior
 
   const form = e.target; // This gets the actual form that triggered the submit
   const name = form.querySelector('input[name="name"]').value;
