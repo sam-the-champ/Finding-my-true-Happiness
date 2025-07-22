@@ -411,7 +411,7 @@ blockquote {
   <div class="popup" id="popup">
     <button class="close-btn" onclick="closePopup()">×</button>
     <h2>Join the Resilience Movement</h2>
-    <form id="newsletter-form" action="https://formspree.io/f/YOUR_ID" method="POST">
+    <form id="newsletter-form" onsubmit="submitForm(event)">
       <input type="text" name="name" placeholder="Your Name" required />
       <input type="email" name="email" placeholder="Your Email" required />
       <button class="btn" type="submit">Get Inspired Updates</button>
@@ -420,7 +420,7 @@ blockquote {
    
   <section id="newsletter" style="max-width: 900px; margin: 40px auto; padding: 30px 20px; background: #fff; border-radius: 12px; box-shadow: 0 6px 20px rgba(74, 144, 226, 0.2); text-align: center;">
   <h2 style="color: #4a90e2; margin-bottom: 24px; font-weight: 700; font-size: 1.8rem;">Join the Resilience Movement</h2>
-  <form id="newsletter-form-bottom" action="https://formspree.io/f/YOUR_ID" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+  <form id="newsletter-form-bottom" onsubmit="submitForm(event)" style="display: flex; flex-direction: column; gap: 15px;">
     <input type="text" name="name" placeholder="Your Name" required
       style="padding: 14px; border: 1.5px solid #ccc; border-radius: 10px; font-size: 1rem; transition: border-color 0.3s ease;"/>
     <input type="email" name="email" placeholder="Your Email" required
@@ -433,14 +433,49 @@ blockquote {
   <script>
     let hasShownPopup = false;
 
-    function trackClick() {
-      fetch('https://hooks.zapier.com/hooks/catch/XXXXXX/XXXXXX', {
-        method: 'POST',
-        body: JSON.stringify({ clicked: true, time: new Date().toISOString() }),
-        headers: { 'Content-Type': 'application/json' }
-      });
-      window.location.href = 'https://a.co/d/iCM0jG4';
-    }
+   function sendToGoogleSheet(data) {
+  fetch('https://script.google.com/macros/s/AKfycbwEOSpXSjnsxEkR98OjaFj-FqZLZY4_KNyiBqHDQVl1OfkRdl22sOXc9cUqC8Ou4o0Y/exec', {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: { 'Content-Type': 'application/json' }
+  })
+  .then(response => response.text())
+  .then(result => {
+    console.log('Success:', result);
+    alert("Thanks for subscribing!");
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert("Something went wrong.");
+  });
+}
+
+function trackClick() {
+  sendToGoogleSheet({ clickType: 'purchase' });
+
+  // Delay redirect to ensure log completes
+  setTimeout(() => {
+    window.location.href = 'https://a.co/d/iCM0jG4';
+  }, 300);
+}
+
+function submitForm(e) {
+  e.preventDefault(); // Stop default form behavior
+
+  const form = e.target; // This gets the actual form that triggered the submit
+  const name = form.querySelector('input[name="name"]').value;
+  const email = form.querySelector('input[name="email"]').value;
+
+  sendToGoogleSheet({
+    name: name,
+    email: email,
+    clickType: 'subscribe'
+  });
+
+  alert('Thanks for subscribing!');
+  form.reset(); // Clear only the form that was submitted
+}
+
 
     function showPopup() {
       document.getElementById('popup').style.display = 'block';
