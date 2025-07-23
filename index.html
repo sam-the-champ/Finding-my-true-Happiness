@@ -431,50 +431,46 @@ blockquote {
 
 
   <script>
-    let hasShownPopup = false;
+   let hasShownPopup = false;
 
-   function sendToGoogleSheet(data) {
-  fetch('https://script.google.com/macros/s/AKfycbxCd17ZQKPlOlbNrOW-TcfItpV_YYI4n2qdf9l4q0u6BHxGe79NdD5IoS6zkadlfqitsw/exec', {
+function sendToGoogleForm(data) {
+  const formData = new FormData();
+  formData.append('entry.1536088848', data.name);   // Name field
+  formData.append('entry.1876690652', data.email); // Email field
+
+  fetch('https://docs.google.com/forms/d/e/1FAIpQLSdOgm8NDtKDATgRSwJ9rAHRAZnWClM8STPJFDpKINO1dstlow/formResponse', {
     method: 'POST',
-    body: JSON.stringify(data),
-    headers: { 'Content-Type': 'application/json' }
+    mode: 'no-cors',
+    body: formData
   })
-  .then(response => response.text())
-  .then(result => {
-    console.log('Success:', result);
+  .then(() => {
+    console.log('Form submitted');
     alert("Thanks for subscribing!");
   })
-  .catch(error => {
-    console.error('Error:', error);
+  .catch((error) => {
+    console.error('Form submit error:', error);
     alert("Something went wrong.");
   });
 }
 
-function trackClick() {
-  sendToGoogleSheet({ clickType: 'purchase' });
-
-  // Delay redirect to ensure log completes
-  setTimeout(() => {
-    window.location.href = 'https://a.co/d/iCM0jG4';
-  }, 300);
-}
+// function trackClick() {
+//   // Optional click tracking (not configured yet)
+//   setTimeout(() => {
+//     window.location.href = 'https://a.co/d/iCM0jG4';
+//   }, 300);
+// }
 
 function submitForm(e) {
-  e.preventDefault(); // Stop default form behavior
+  e.preventDefault();
 
-  const form = e.target; // This gets the actual form that triggered the submit
+  const form = e.target;
   const name = form.querySelector('input[name="name"]').value;
   const email = form.querySelector('input[name="email"]').value;
 
-  sendToGoogleSheet({
-    name: name,
-    email: email,
-    clickType: 'subscribe'
-  });
-
-  alert('Thanks for subscribing!');
-  form.reset(); // Clear only the form that was submitted
+  sendToGoogleForm({ name, email });
+  form.reset();
 }
+
 
 
     function showPopup() {
@@ -505,3 +501,4 @@ function submitForm(e) {
   </script>
 </body>
 </html>
+https://docs.google.com/forms/u/0/d/1QmksVlQA7L0dVz4Qu3O1MU1iugkK1sDXlIxWV4YME9s/previewResponse
